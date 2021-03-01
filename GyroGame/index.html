@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%; width: 100%; overflow: hidden;">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <meta charset="UTF-8">
+    <title>GyroGame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+          crossorigin="anonymous">
+    <script src="js/main.js"></script>
+</head>
+<body style="height: 100%">
+    <div class="message" id="startMessage">
+        <div class="msgtitle">
+            <h1>GyroGame</h1>
+        </div>
+        <div class="msg">
+            Please disable the auto-rotation functionality on your phone and press start to begin
+        </div>
+        <div class="msgButton">
+            <button type="button" class="btn btn-success" onclick="start()">Start</button>
+        </div>
+    </div>
+
+    <div class="message" id="introMessage" style="display: none; top: calc(50vh - 200px)">
+        <div class="msgtitle">
+            <h1>How to</h1>
+        </div>
+        <div class="msg">
+            Tilt your phone to guide the hungry mouth towards the gyros, like a marble.<br>
+            You get 10s for each gyro. Eat it before the time runs out, to generate the next one and reset the timer. <br>
+            <strong>If you don't eat it quickly or go out of bounds you lose a life!</strong> <br>
+        </div>
+        <div class="msgButton">
+            <button type="button" class="btn btn-success" onclick="restart()">Ok got it!</button>
+        </div>
+    </div>
+
+    <div class="message" id="retryMessage" style="display: none">
+        <div class="msgtitle">
+            <h1>Oops...</h1>
+        </div>
+        <div class="msg">
+            You went out of bounds! <br>
+                You still have lifes left though. Get ready and try again!
+        </div>
+        <div class="msgButton">
+            <button type="button" class="btn btn-warning" onclick="retry()">Go again</button>
+        </div>
+    </div>
+
+    <div class="message" id="retryTimeMessage" style="display: none">
+        <div class="msgtitle">
+            <h1>Oops...</h1>
+        </div>
+        <div class="msg">
+            You ran out of time!
+            You still have lifes left though.
+            Get ready and try again!
+        </div>
+        <div class="msgButton">
+            <button type="button" class="btn btn-warning" onclick="retry()">Go again</button>
+        </div>
+    </div>
+
+    <div class="message" id="lostMessage" style="display: none">
+        <div class="msgtitle">
+            <h1>☠</h1>
+        </div>
+        <div class="msg">
+            You have no more lifes left.
+        </div>
+        <div class="msgButton">
+            <button type="button" class="btn btn-danger" onclick="restart()">Restart</button>
+        </div>
+    </div>
+
+    <div class="status">
+        <div class="statsContainer">
+        <div class="pointsholder">
+            <div style="display: block">Points</div> <div style="display: block" id="points" class="points"> 0 </div>
+        </div>
+        <div class="pointsholder">
+            <div style="display: block">Lifes left</div> <div style="display: block" id="lifes" class="points"> 0 </div>
+        </div>
+        </div>
+        <div class="statsContainer">
+            <div class="pointsholder">
+                <div style="display: block" id="timeLeft" class="timeLeft">0</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="playingField">
+    </div>
+
+    <span class="mouth" id="ball"
+          style="
+    top: calc(50vh - 25px);
+    left: calc(50vw - 25px);">
+        👁👁
+
+    </span>
+
+    <span class="entity-gyro" id="entity"
+          style="display: none">
+    </span>
+</body>
+</html>
